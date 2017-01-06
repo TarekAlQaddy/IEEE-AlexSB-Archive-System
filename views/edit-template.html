@@ -1,0 +1,71 @@
+<style>
+#editModal .modal-header{
+  background: #02dd0c;
+}
+#editModal .modal-title{
+  color: #fff;
+  font-size: 22px;
+}
+#editModal .modal-content{
+  background: #ebebeb;
+}
+
+#editModal .modal-body .btn-delete{
+  width:120px;
+  background: #fe3535;
+  color: #fff;
+  border-radius: 0;
+  margin: 10px 30px 10px 5px;
+}
+#editModal .modal-body label,#editModal .modal-body input{
+  display: block;
+  margin-left: 20px;
+
+}
+#editModal .modal-body input{
+  width: 50%;
+  border:none;
+  border-radius: 5px;
+  height: 30px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+}
+#editModal .modal-body label{
+  margin-top: 5px;
+  font-size: 18px;
+}
+
+#editModal .modal-footer .btn{
+  border-radius: 0;
+  width:120px;
+}
+</style>
+
+<div class="modal" id="editModal" role="dialog" aria-labelledby="editModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="editModal">Edit</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+            <button class="btn btn-delete">Delete</button><span>{{editReport.name}}</span>
+            <label for="title-input">Title</label>
+            <input type="text" id="title-input" ng-model="editReport.name" />
+            <label for="event-input">Event</label>
+            <input type="text" id="event-input" ng-model="editReport.event" />
+            <label for="year-input">Year</label>
+            <input type="text" id="year-input" ng-model="editReport.date"/>
+            <label for="editReporter-input">editReporter</label>
+            <input type="text" id="editReporter-input" ng-model="editReport.editReporter" />
+            <label for="tags-input">Tags</label>
+            <input type="text" id="tags-input" ng-model="editReport.tags" />
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>

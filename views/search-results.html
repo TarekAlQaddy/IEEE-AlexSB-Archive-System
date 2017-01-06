@@ -1,0 +1,85 @@
+
+
+        <link rel="stylesheet" href="css/search-results.css" />
+
+        <div class="search-results-body container-fluid" ng-controller='resultsCont'>
+
+            <div class="modal modals fade" id="editModal" tabindex="1" role="dialog" aria-labelledby="editModal">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Edit</h4>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                        <button class="btn btn-delete" ng-click='deleteReport()'>Delete</button><span>{{editReport.name}}</span>
+                        <label for="title-input">Title <span class="red">*</span></label>
+                        <input type="text" id="title-input" ng-model="editReport.name" />
+                        <label for="event-input">Event <span class="red">*</span></label>
+                        <input type="text" id="event-input" ng-model="editReport.event" />
+                        <label for="year-input">Year <span class="red">*</span></label>
+                        <input type="text" id="year-input" ng-model="editReport.date"/>
+                        <label for="editReporter-input">Reporter <span class="red">*</span></label>
+                        <input type="text" id="reporter-input" ng-model="editReport.reporter" />
+                        <label for="tags-input">Tags</label>
+                        <input type="text" id="tags-input" ng-model="editReport.tags" />
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" ng-click="editReportFunc">Submit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row first-row">
+                <div class="col-md-3 col-md-offset-1 col-xs-6 col-xs-offset-3 logo-wrapper"><img src="images/ieee-alexsb-logo-blue.png" /></div>
+            </div>
+            <div class="row">
+                <div class="form-wrapper col-lg-9 col-lg-offset-1 col-md-8 col-md-offset-2">
+                    <form class="form">
+                        <div class="input-option-wrapper">
+                            <input class="form-control text-input" type="text" name="search-text" ng-model='searchText2' required/>
+                            <select class="form-control select" name="search-by" value='SEARCH BY' ng-model=searchType2>SEARCH BY
+                                <option value="0">SEARCH BY..</option>
+                                <option value="event">EVENT</option>
+                                <option value="date">DATE</option>
+                                <option value="tags">TAGS</option>
+                            </select>
+                        </div>
+                        <a class="btn btn-primary" ng-click="getData()" type="submit">SEARCH</a>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="table-wrapper col-lg-10 col-lg-offset-1">
+                    <div class="errorMsg" ng-if="errorMsg"><h3>{{errorMsg}}</h3></div>
+                    <table class="table" ng-if="searchData&&(!errorMsg)">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Event</th>
+                                <th>Year</th>
+                                <th>Reporter</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="report in searchData">
+                                <td class="feedabacks">{{report.name}}</td>
+                                <td class="event">{{report.event}}</td>
+                                <td class="year">{{report.date}}</td>
+                                <td class='reporter'>{{report.reporter}}</td>
+                                <td class="options">
+                                    <a  class="option view"></a>
+                                    <a  data-edit="{{report.id}}" ng-click="getReport($event)" class="option edit" data-toggle="modal" data-target="#editModal"></a>
+                                    <a  class="option download"></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>

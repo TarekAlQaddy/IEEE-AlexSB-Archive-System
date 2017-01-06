@@ -1,0 +1,23 @@
+<div class="search-body container-fluid" ng-controller='searchCont'>
+    <section class="col-md-12 col-lg-12">
+        <div class="row logo">
+            <div class="col-md-6 col-md-offset-3">
+                <img alt="IEEE AlexSB Archive System" class="img img-responsive"src="images/ieee-alexsb-logo.png" />
+            </div>
+        </div>
+        <div class="row">
+            <form class="form col-md-6 col-md-offset-3">
+                <div class="input-option-wrapper">
+                    <input class="form-control text-input" type="text" name="search-text" ng-model='searchText' required/>
+                    <select class="form-control select" name="search-by" ng-model='searchType'>SEARCH BY
+                        <option value="0">SEARCH BY..</option>
+                        <option value="event">EVENT</option>
+                        <option value="date">DATE</option>
+                        <option value="tags">TAGS</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary" type="submit" onclick="window.location.href='#/search-results'">SEARCH</button>
+            </form>
+        </div>
+    </section>
+</div>

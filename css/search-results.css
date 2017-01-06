@@ -1,0 +1,146 @@
+body{
+    background: #fff;
+}
+#hamb span{
+    background: #909090;
+}
+.search-results-body .first-row{
+    padding-top: 80px;
+}
+.search-results-body .logo-wrapper img{
+    width:100%;
+}
+.search-results-body .form-wrapper{
+    margin-top: 50px;
+}
+.search-results-body .form-wrapper form *{
+    border-radius: 0;
+    box-shadow: none;
+}
+.search-results-body .form-wrapper .input-option-wrapper{
+    width:70%;
+}
+.search-results-body .form-wrapper .text-input{
+    display: inline-block;
+    width:70%;
+    float: left;
+    border-right: none;
+    height: 40px;
+    background: #ebebeb;
+    font-size: 1.8rem;
+}
+.search-results-body .form-wrapper .select{
+    display: inline-block;
+    width:30%;
+    float: left;
+    border-left: none;
+    height: 40px;
+    background: #ebebeb;
+    font-size: 1.5rem;
+}
+.search-results-body .form-wrapper option{
+    height: 40px;
+}
+.search-results-body .form-wrapper .btn{
+    display: inline-block;
+    margin-left: 30px;
+    height: 40px;
+    width: 120px;
+    line-height: 27px;
+}
+
+.search-results-body .table-wrapper{
+    margin-top: 50px;
+}
+.search-results-body .table{
+    font-size: 2rem;
+    color: #707070;
+}
+.search-results-body .table-wrapper thead{
+    background: #fff;
+    color:#707070;
+}
+.search-results-body .table-wrapper thead th{
+    border:none;
+}
+
+.search-results-body .table-wrapper tbody tr{
+    border-bottom: 10px solid #fff;
+    border-top: 10px solid #fff;
+    border-radius: 20px;
+}
+.search-results-body .table-wrapper tbody tr:hover td{
+    background-color: #025ab3;
+    color: #fff;
+}
+.search-results-body .table-wrapper tbody td{
+    background: #ebebeb;
+    padding: 5px 7px;
+}
+
+.table-wrapper .feedabacks{
+    width: 30%;
+}
+.table-wrapper .event{
+    width: 15%;
+}
+.table-wrapper .year{
+    width: 12%;
+}
+.table-wrapper .reporter{
+    width: 18%;
+}
+.table-wrapper .options{
+    text-align: right;
+}
+.table-wrapper .option{
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    margin-bottom: -5px;
+    border-radius: 5px;
+}
+.option.view{
+    background: #bc54fe url('../images/eye-open.png') no-repeat center center;
+    background-size: 85%;
+}
+.option.view:hover{
+    background-color: #8d3ebf;
+}
+.option.edit{
+    background: #02dd0c url('../images/pen.png') no-repeat center center;
+    background-size: 80%;
+}
+.option.edit:hover{
+    background-color: #02ad0a;
+}
+.option.download{
+    background: #017efd url('../images/download.png') no-repeat center center;
+    background-size: 75%;
+}
+.option.download:hover{
+    background-color: #0261c2;
+}
+.errorMsg{
+    text-align: center;
+    color: red;
+}
+
+
+
+
+@media only all and (max-width:992px){
+    .search-results-body .form .input-option-wrapper{
+        width: 100%;
+        margin:20px 0;
+    }
+    .search-results-body .form .text-input,.search-results-body .form .select{
+        margin-bottom: 30px;
+    }
+    .search-results-body .form .btn{
+        display: block;
+        margin: 80px auto;
+    }
+}
+
+/**********************************/
