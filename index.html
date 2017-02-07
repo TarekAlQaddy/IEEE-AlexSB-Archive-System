@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="vendor/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="css/search-style.css" />
 
-
+        <!-- use CDN in production -->
         <script type="text/javascript" src="vendor/js/jquery-3.1.1.slim.min.js"></script>
         <script type="text/javascript" src="vendor/js/bootstrap.min.js"></script>
 
@@ -101,7 +101,14 @@
                 <div class="row">
                     <div class="table-wrapper col-lg-10 col-lg-offset-1">
                         <div class="errorMsg" ng-if="errorMsg"><h3>{{errorMsg}}</h3></div>
+                        <div class="errorMsg" ng-if="!searchData"><h3>No Results</h3></div>
+
+                        <div ng-if="searchData&&(!errorMsg)" class="col-lg-4 col-lg-offset-4 filter">
+                            <label>Filter: </label>
+                            <input type="text" ng-model="filterText.name">
+                        </div>
                         <table class="table" ng-if="searchData&&(!errorMsg)">
+
                             <thead>
                                 <tr>
                                     <th>Title</th>
@@ -112,14 +119,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="report in searchData | orderBy:'name'">
+                                <tr ng-repeat="report in searchData | filter:filterText ">
                                     <td class="feedabacks">{{report.name}}</td>
                                     <td class="event">{{report.event}}</td>
                                     <td class="year">{{report.date}}</td>
                                     <td class='reporter'>{{report.reporter}}</td>
                                     <td class="options">
                                         <a  class="option view"></a>
-                                        <a  data-edit="{{report.id}}" ng-click="getReport($event)" class="option edit" data-toggle="modal" data-target="#editModal"></a>
+                                        <a  data-edit="{{report.id}}" ng-click="getReport(report)" class="option edit" data-toggle="modal" data-target="#editModal"></a>
                                         <a  class="option download"></a>
                                     </td>
                                 </tr>

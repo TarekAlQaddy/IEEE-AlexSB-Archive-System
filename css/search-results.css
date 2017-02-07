@@ -56,6 +56,17 @@ body{
     font-size: 2rem;
     color: #707070;
 }
+.search-results-body .table-wrapper .filter{
+    border: none;
+    height: 40px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #707070;
+}
+.search-results-body .table-wrapper .filter input{
+    background: #ebebeb;
+    border:none;
+}
 .search-results-body .table-wrapper thead{
     background: #fff;
     color:#707070;
