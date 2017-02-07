@@ -14,26 +14,28 @@ searchApp.config(function($routeProvider){
     })
 });
 //custom service to share data among controllers
-searchApp.service('searchSvc',function($http){
+searchApp.service('searchSvc',function(){
     this.text = null;
     this.type = '0';
     this.data = null;
     this.editReport = null;
-})
+});
+
 //searchCont for first view 'search.html'
 searchApp.controller('searchCont',['$scope','searchSvc',function ($scope,searchSvc) {
     $scope.searchText = searchSvc.text;
     $scope.searchType = searchSvc.type;
     $scope.$watch('searchText',function(){
         searchSvc.text = $scope.searchText;
-    })
+    });
     $scope.$watch('searchType',function(){
         searchSvc.type = $scope.searchType;
-    })
+    });
     $scope.getView = function(url){
         window.location.href = url;
     }
 }]);
+
 //resultsCont for second view 'search-results.html' and its edit modal
 searchApp.controller('resultsCont',['$scope','searchSvc','$log',function ($scope,searchSvc,$log) {
 
@@ -54,7 +56,7 @@ searchApp.controller('resultsCont',['$scope','searchSvc','$log',function ($scope
     });
     $scope.$watch('editReport',function(){
         searchSvc.editReport = $scope.editReport;
-    })
+    });
 
 
 
@@ -93,12 +95,13 @@ searchApp.controller('resultsCont',['$scope','searchSvc','$log',function ($scope
                 event:'EDM',
                 reporter:'tarek tarek',
                 id:4
-            },
+            }
         ]
-    }
+    };
     $scope.getData();
     console.log($scope)
 
+    //to pass the id of the html element and get it from the list here
     function searchKeyVal(ar,value){
         for(var i in ar){
             if(ar[i].id == value)
@@ -106,20 +109,19 @@ searchApp.controller('resultsCont',['$scope','searchSvc','$log',function ($scope
         }
         return null;
     }
-
+    //get the report id and search for that report then set it to editReport
     $scope.getReport = function($event){
         var id = $event.target.dataset.edit;
-        var report = searchKeyVal($scope.searchData,id);
-        $scope.editReport = report;
-    }
+        $scope.editReport = searchKeyVal($scope.searchData,id);
+    };
 
 
     $scope.deleteReport = function(){
         //TODO: send POST request
-    }
+    };
     $scope.editReportFunc = function(){
         //TODO: send POST request
     }
 
 
-}])
+}]);
